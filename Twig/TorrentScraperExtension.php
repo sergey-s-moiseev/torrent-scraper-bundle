@@ -57,7 +57,7 @@ class TorrentScraperExtension extends \Twig_Extension
      */
     public function getScraperUrl($scraper)
     {
-        return $this->scrapperService->getAdapterUrl();
+        return $this->scrapperService->getAdapterUrl($scraper);
     }
 
     /**

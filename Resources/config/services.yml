@@ -1,0 +1,48 @@
+parameters:
+  torrent_scraper.scraper_service.class: '\SergeySMoiseev\TorrentScraper\TorrentScraperService'
+
+  torrent_scraper.scraper.twig_extension.class: '\SergeySMoiseev\TorrentScraperBundle\Twig\TorrentScraperExtension'
+
+  torrent_scraper.scraper_adapter.extratorrent.class: '\SergeySMoiseev\TorrentScraper\Adapter\ExtratorrentAdapter'
+  torrent_scraper.scraper_adapter.ez_tv.class: '\SergeySMoiseev\TorrentScraper\Adapter\EzTvAdapter'
+  torrent_scraper.scraper_adapter.kickass_torrents.class: '\SergeySMoiseev\TorrentScraper\Adapter\KickassTorrentsAdapter'
+  torrent_scraper.scraper_adapter.the_pirate_bay.class: '\SergeySMoiseev\TorrentScraper\Adapter\ThePirateBayAdapter'
+  torrent_scraper.scraper_adapter.torrentz2.class: '\SergeySMoiseev\TorrentScraper\Adapter\Torrentz2Adapter'
+
+services:
+  torrent_scraper.scraper_service:
+    class: '%torrent_scraper.scraper_service.class%'
+
+  torrent_scraper.scraper.twig_extension:
+    class: '%torrent_scraper.scraper.twig_extension.class%'
+    arguments: ['@torrent_scraper.scraper_service']
+    public: false
+    tags:
+      - { name: twig.extension }
+
+  torrent_scraper.scraper_adapter.extratorrent:
+    class: '%torrent_scraper.scraper_adapter.extratorrent.class%'
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'extratorrent' }
+
+  torrent_scraper.scraper_adapter.ez_tv:
+    class: '%torrent_scraper.scraper_adapter.ez_tv.class%'
+    arguments: [~]
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'ez_tv' }
+
+  torrent_scraper.scraper_adapter.kickass_torrents:
+    class: '%torrent_scraper.scraper_adapter.kickass_torrents.class%'
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'kickass_torrents' }
+
+  torrent_scraper.scraper_adapter.the_pirate_bay:
+    class: '%torrent_scraper.scraper_adapter.the_pirate_bay.class%'
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'the_pirate_bay' }
+
+  torrent_scraper.scraper_adapter.torrentz2:
+    class: '%torrent_scraper.scraper_adapter.torrentz2.class%'
+    arguments: [~]
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'torrentz2' }

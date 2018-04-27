@@ -1,0 +1,35 @@
+{
+    "name": "sergey-s-moiseev/torrent-scraper-bundle",
+    "description": "Symfony wrapper for sergey-s-moiseev/torrent-scraper.",
+    "keywords": [
+      "torrent",
+      "piratebay",
+      "kickass"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/sergey-s-moiseev/torrent-scraper-bundle",
+    "authors": [
+      {
+        "name": "Alex Romanenko",
+        "email": "romanenko.alex.v@gmail.com",
+        "homepage": "http://www.moses-team.ru",
+        "role": "Developer"
+      },
+      {
+        "name": "Sergey S. Moiseev",
+        "email": "sergey.s.moiseev@gmail.com",
+        "homepage": "http://www.moses-team.ru",
+        "role": "Developer"
+      }
+    ],
+    "require": {
+      "php": ">=5.5",
+      "sergey-s-moiseev/torrent-scraper": "dev-master"
+    },
+    "autoload": {
+      "psr-4": {
+        "SergeySMoiseev\\TorrentScraperBundle\\": ""
+      }
+    }
+}
+  

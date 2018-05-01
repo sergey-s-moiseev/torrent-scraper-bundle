@@ -29,17 +29,17 @@ services:
     class: '%torrent_scraper.scraper_adapter.ez_tv.class%'
     arguments: [~]
     tags:
-      - { name: 'torrent_scraper.scraper_adapter', label: 'ez_tv' }
+      - { name: 'torrent_scraper.scraper_adapter', label: 'ezTv' }
 
   torrent_scraper.scraper_adapter.kickass_torrents:
     class: '%torrent_scraper.scraper_adapter.kickass_torrents.class%'
     tags:
-      - { name: 'torrent_scraper.scraper_adapter', label: 'kickass_torrents' }
+      - { name: 'torrent_scraper.scraper_adapter', label: 'kickassTorrents' }
 
   torrent_scraper.scraper_adapter.the_pirate_bay:
     class: '%torrent_scraper.scraper_adapter.the_pirate_bay.class%'
     tags:
-      - { name: 'torrent_scraper.scraper_adapter', label: 'the_pirate_bay' }
+      - { name: 'torrent_scraper.scraper_adapter', label: 'thePirateBay' }
 
   torrent_scraper.scraper_adapter.torrentz2:
     class: '%torrent_scraper.scraper_adapter.torrentz2.class%'

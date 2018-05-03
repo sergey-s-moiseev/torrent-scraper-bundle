@@ -12,10 +12,10 @@ class Constant
     public static function torrentScrapers()
     {
         return [
-            self::TORRENTZ2,
-            self::THEPIRATEBAY,
-            self::KICKASS,
             self::EZTV,
+            self::KICKASS,
+            self::THEPIRATEBAY,
+            self::TORRENTZ2,
             self::EXTRATORRENT
         ];
     }

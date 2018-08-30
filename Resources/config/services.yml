@@ -8,6 +8,7 @@ parameters:
   torrent_scraper.scraper_adapter.kickass_torrents.class: '\SergeySMoiseev\TorrentScraper\Adapter\KickassTorrentsAdapter'
   torrent_scraper.scraper_adapter.the_pirate_bay.class: '\SergeySMoiseev\TorrentScraper\Adapter\ThePirateBayAdapter'
   torrent_scraper.scraper_adapter.torrentz2.class: '\SergeySMoiseev\TorrentScraper\Adapter\Torrentz2Adapter'
+  torrent_scraper.scraper_adapter.yts.class: '\SergeySMoiseev\TorrentScraper\Adapter\YTSAdapter'
 
 services:
   torrent_scraper.scraper_service:
@@ -46,3 +47,9 @@ services:
     arguments: [~]
     tags:
       - { name: 'torrent_scraper.scraper_adapter', label: 'torrentz2' }
+
+  torrent_scraper.scraper_adapter.yts:
+    class: '%torrent_scraper.scraper_adapter.yts.class%'
+    tags:
+      - { name: 'torrent_scraper.scraper_adapter', label: 'YTS' }
+

@@ -9,7 +9,7 @@ use Doctrine\Common\Util\Inflector;
 /*
 torrent_scraper:
     service: torrent_scraper.scraper_service
-    available_list: [ez_tv, kickass_torrents, the_pirate_bay, torrentz2, extratorrent]
+    available_list: [ez_tv, kickass_torrents, the_pirate_bay, torrentz2, extratorrent, yts]
     torrentz2:
         node_path: ~
         node_modules_path: ~

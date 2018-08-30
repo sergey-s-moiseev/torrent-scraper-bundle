@@ -10,6 +10,7 @@ class Constant
     const THEPIRATEBAY = Adapter\ThePirateBayAdapter::ADAPTER_NAME; // 'thePirateBay';
     const TORRENTZ2 = Adapter\Torrentz2Adapter::ADAPTER_NAME; // 'torrentz2';
     const EXTRATORRENT = Adapter\ExtratorrentAdapter::ADAPTER_NAME; // 'extratorrent';
+    const YTS = Adapter\YTSAdapter::ADAPTER_NAME; // 'YTS';
 
     public static function torrentScrapers()
     {
@@ -18,7 +19,8 @@ class Constant
             self::KICKASS,
             self::THEPIRATEBAY,
             self::TORRENTZ2,
-            self::EXTRATORRENT
+            self::EXTRATORRENT,
+            self::YTS
         ];
     }
 }

@@ -43,20 +43,8 @@ class Configuration implements ConfigurationInterface
                     ->end()
                     ->defaultValue($scrapers)
                 ->end()
-                ->arrayNode(Inflector::tableize(Constant::TORRENTZ2))
-                    ->info('Additional options for Torrentz2.')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->scalarNode('node_path')
-                            ->info('Path to node executable. If null, node should be added to the system path list.')
-                            ->defaultNull()
-                        ->end()
-                        ->scalarNode('node_modules_path')
-                            ->info('Path to node modules. You should install browser-env and sandbox.js there. If null, modules should be available globally.')
-                            ->defaultNull()
-                        ->end()
-                    ->end()
-                ->end()
+                ->append($this->addNodeJsConfiguration(Inflector::tableize(Constant::TORRENTZ2)))
+                ->append($this->addNodeJsConfiguration(Inflector::tableize(Constant::YTS)))
                 ->arrayNode(Inflector::tableize(Constant::EZTV))
                     ->info('Additional options for EzTV.')
                     ->addDefaultsIfNotSet()
@@ -73,5 +61,27 @@ class Configuration implements ConfigurationInterface
         ;
 
         return $treeBuilder;
+    }
+
+    private function addNodeJsConfiguration($name)
+    {
+        $treeBuilder = new TreeBuilder();
+        $node = $treeBuilder->root($name);
+
+        $node
+            ->info("Additional options for {$name}.")
+            ->addDefaultsIfNotSet()
+            ->children()
+                ->scalarNode('node_path')
+                    ->info('Path to node executable. If null, node should be added to the system path list.')
+                    ->defaultNull()
+                ->end()
+                ->scalarNode('node_modules_path')
+                    ->info('Path to node modules. You should install browser-env and sandbox.js there. If null, modules should be available globally.')
+                    ->defaultNull()
+                ->end()
+            ->end()
+        ;
+        return $node;
     }
 }

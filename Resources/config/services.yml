@@ -52,5 +52,4 @@ services:
     class: '%torrent_scraper.scraper_adapter.yts.class%'
     arguments: [~]
     tags:
-      - { name: 'torrent_scraper.scraper_adapter', label: 'YTS' }
-
+      - { name: 'torrent_scraper.scraper_adapter', label: 'yts' }

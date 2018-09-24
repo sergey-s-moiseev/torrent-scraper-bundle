@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use SergeySMoiseev\TorrentScraperBundle\Constant;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Reference;
 
 class TorrentScraperExtension extends Extension
 {
@@ -30,6 +31,9 @@ class TorrentScraperExtension extends Extension
             elseif(array_key_exists($_adapter, $config)) {
                 $def = $container->getDefinition($definitionId);
                 $def->replaceArgument(0, $config[$_adapter]);
+                if(null !== $config['logger']) {
+                    $def->addMethodCall('setLogger', [new Reference($config['logger'])]);
+                }
             }
     }
     }

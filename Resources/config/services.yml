@@ -1,4 +1,5 @@
 parameters:
+  torrent_scraper.scraper_service.script: '127.0.0.1:5000'
   torrent_scraper.scraper_service.class: '\SergeySMoiseev\TorrentScraper\TorrentScraperService'
 
   torrent_scraper.scraper.twig_extension.class: '\SergeySMoiseev\TorrentScraperBundle\Twig\TorrentScraperExtension'
@@ -13,6 +14,9 @@ parameters:
 services:
   torrent_scraper.scraper_service:
     class: '%torrent_scraper.scraper_service.class%'
+    calls:
+      - method: setScriptAddress
+        arguments: ['%torrent_scraper.scraper_service.script%']
 
   torrent_scraper.scraper.twig_extension:
     class: '%torrent_scraper.scraper.twig_extension.class%'

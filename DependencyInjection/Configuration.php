@@ -32,8 +32,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('scraper_script')
+                    ->info('The scraper script address, preffered in host:port notation')
+                    ->defaultValue('127.0.0.1:5000')
+                ->end()
                 ->scalarNode('service')
-                    ->info('The scrapper service. You can override it here to use your own.')
+                    ->info('The scraper service. You can override it here to use your own.')
                     ->defaultValue('torrent_scraper.scraper_service')
                 ->end()
                 ->scalarNode('logger')

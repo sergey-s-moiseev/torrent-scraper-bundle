@@ -21,6 +21,7 @@ class TorrentScraperExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('torrent_scraper.scraper_service.script', $config['scraper_script']);
         $container->setParameter('torrent_scraper.service', $config['service']);
         $scrapers = array_map(['Doctrine\Common\Util\Inflector', 'tableize'], Constant::torrentScrapers());
         foreach($scrapers as $_adapter) {
